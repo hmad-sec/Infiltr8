@@ -18,16 +18,22 @@ pip install -e .
 
 ## Usage
 
-### Subdomain Enumeration
+#### Subdomain Enumeration
+```bash
 infiltr8 subdomain example.com
+```
 
-### Directory Bruteforce
+#### Directory Bruteforce
+```bash
 infiltr8 dirbuster http://example.com -w wordlist.txt
+```
 
-### SQLi Test
+#### SQLi Test
+```bash
 infiltr8 sqli http://example.com/page.php?id=1
+```
 
 ## Modules
-subdomain - searches for subdomains using crt.sh
-dirbuster - bruteforces directories with a wordlist
-sqli - tests URLs for basic SQL injection
+- subdomain: searches for subdomains using crt.sh
+- dirbuster: bruteforces directories with a wordlist
+- sqli:      tests URLs for basic SQL injection
