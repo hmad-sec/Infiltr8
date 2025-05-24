@@ -12,7 +12,7 @@
 git clone https://github.com/yourusername/Infiltr8.git
 cd Infiltr8
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv/Scripts/activate
 pip install -e .
 ```
 
@@ -37,3 +37,8 @@ infiltr8 sqli http://example.com/page.php?id=1
 - subdomain: searches for subdomains using crt.sh
 - dirbuster: bruteforces directories with a wordlist
 - sqli:      tests URLs for basic SQL injection
+
+## Example Output
+Here's a sample output of the Subdomain Enumeration module in action:
+
+![Subdomain Enumeration Example](examples/infiltr8_subdomain.png)
