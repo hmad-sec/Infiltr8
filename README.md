@@ -9,6 +9,8 @@
 - 📡 **Port Scanning** – Scans ports across a target IP or host.
 - 🔥 **WAF Detection** – Identifies possible Web Application Firewalls in front of targets.
 - 🧪 **XSS Scanner** – Detects reflected Cross-Site Scripting (XSS) vulnerabilities using payload injection.
+- 🔐 **Login Brute-force** – Attempts to brute-force web login forms using supplied credentials and wordlist.
+- 🍪 **Session Analysis** – Evaluates cookie flags (e.g. HttpOnly, Secure), and checks session handling behavior.
 
 ## Installation
 
@@ -81,6 +83,16 @@ infiltr8 waf https://example.com
 infiltr8 xss https://example.com/search?q=test
 ```
 
+#### Login Brute-force
+```bash
+infiltr8 login https://example.com/login -u admin -w passwords.txt --user-field username --pass-field password
+```
+
+### Session Analysis
+```bash
+infiltr8 session https://example.com
+```
+
 ## Examples
 
 You can find example usage output and screenshots in the `examples/` directory.
@@ -100,20 +112,20 @@ You can find example usage output and screenshots in the `examples/` directory.
 - [x] Portscanner – Scans specified port ranges.
 - [x] WAF detection – Identify common WAFs via behavior and headers.
 - [x] XSS scanner – Test for reflected XSS payloads.
-- Login brute-force – Attempt to brute-force web login forms.
-- Session analysis – Evaluate cookie flags, session handling.
-- Tech stack fingerprinting – Identify tech used by target web apps.
-- CORS misconfig scanner – Detect overly permissive CORS settings.
-- Vulnerability DB checker – Match target info against known CVEs.
-- CSP & security header analyzer – Check for missing/misconfigured headers.
-- Command injection tester – Attempt basic OS injection payloads.
-- WHOIS lookup – Display WHOIS info for domains.
-- DNS record enumerator – Lookup DNS A, MX, TXT, and NS records.
-- Parameter discovery – Fuzz for common parameter names.
-- Open redirect tester – Identify improperly validated redirect URLs.
-- Admin panel finder – Discover common admin URLs.
-- Swagger/OpenAPI crawler – Auto-enumerate API endpoints from spec.
-- JWT analyzer – Decode and inspect JWTs for weaknesses.
+- [x] Login brute-force – Attempt to brute-force web login forms.
+- [x] Session analysis – Evaluate cookie flags, session handling.
+- [ ] Tech stack fingerprinting – Identify tech used by target web apps.
+- [ ] CORS misconfig scanner – Detect overly permissive CORS settings.
+- [ ] Vulnerability DB checker – Match target info against known CVEs.
+- [ ] CSP & security header analyzer – Check for missing/misconfigured headers.
+- [ ] Command injection tester – Attempt basic OS injection payloads.
+- [ ] WHOIS lookup – Display WHOIS info for domains.
+- [ ] DNS record enumerator – Lookup DNS A, MX, TXT, and NS records.
+- [ ] Parameter discovery – Fuzz for common parameter names.
+- [ ] Open redirect tester – Identify improperly validated redirect URLs.
+- [ ] Admin panel finder – Discover common admin URLs.
+- [ ] Swagger/OpenAPI crawler – Auto-enumerate API endpoints from spec.
+- [ ] JWT analyzer – Decode and inspect JWTs for weaknesses.
 
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first, to discuss what you would like to change.

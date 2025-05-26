@@ -6,6 +6,7 @@ from pyfiglet import Figlet
 
 from infiltr8.modules import subdomain, dirbuster, sqli, headers, portscan, waf, xss
 
+
 console = Console()
 
 def main():
@@ -45,8 +46,20 @@ def main():
     waf_parser.add_argument("target", help="Target URL or IP address")
 
     # XSS module
-    xss_parser = subparsers.add_parser("xss", help="Test for reflected XSS vulnerabilities")
-    xss_parser.add_argument("url", help="Target URL with parameters (e.g., https://site.com/search?q=test)")
+    xss_parser = subparsers.add_parser("xss", help="Test for reflected XSS")
+    xss_parser.add_argument("url", help="Target URL with a query parameter")
+
+    # login brute-force
+    login_parser = subparsers.add_parser("login", help="Brute-force login form")
+    login_parser.add_argument("url", help="Login URL (POST endpoint)")
+    login_parser.add_argument("-u", "--username", required=True, help="Username to brute-force for")
+    login_parser.add_argument("-w", "--wordlist", required=True, help="Password wordlist file")
+    login_parser.add_argument("--user-field", default="username", help="Form field name for username")
+    login_parser.add_argument("--pass-field", default="password", help="Form field name for password")
+
+    # Session analysis module
+    session_parser = subparsers.add_parser("session", help="Analyze session handling and cookies")
+    session_parser.add_argument("url", help="Target URL")
 
 
     args = parser.parse_args()
@@ -63,8 +76,15 @@ def main():
         portscan.run(args.host, args.ports, console)
     elif args.module == "waf":
         waf.detect_waf(args.target)
-    elif args.command == "xss":
-        xss.inject_xss(args.url)
+    elif args.module == "xss":
+        from infiltr8.modules.xss import inject_xss
+        inject_xss(args.url)
+    elif args.module == "login":
+        from infiltr8.modules.login_brute import login_bruteforce
+        login_bruteforce(args.url, args.user_field, args.pass_field, args.username, args.wordlist)
+    elif args.module == "session":
+        from infiltr8.modules.session_analysis import check_session_security
+        check_session_security(args.url)
     else:
         parser.print_help()
 
