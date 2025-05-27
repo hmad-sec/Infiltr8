@@ -1,16 +1,17 @@
 # Infiltr8
-**Infiltr8** is a Python CLI toolkit designed for web application penetration testing. It brings together multiple offensive tools in one command-line interface for fast, focused testing.
+Infiltr8 is a beginner-friendly Python CLI toolkit made for learning and performing web application penetration testing. It brings together simple yet powerful tools—like subdomain discovery, directory scanning, SQL injection testing, and more—into one easy-to-use command-line interface.
 
 ## Features
-- 🔍 **Subdomain Enumeration** – Uses `crt.sh` to find subdomains.
-- 📂 **Directory Bruteforce** – Recursively brute-forces directories with a custom wordlist.
-- 🛡️ **HTTP Headers** – Fetches and displays HTTP headers.
-- 💉 **SQLi Testing** – Naive GET-parameter-based SQLi detection.
-- 📡 **Port Scanning** – Scans ports across a target IP or host.
-- 🔥 **WAF Detection** – Identifies possible Web Application Firewalls in front of targets.
-- 🧪 **XSS Scanner** – Detects reflected Cross-Site Scripting (XSS) vulnerabilities using payload injection.
-- 🔐 **Login Brute-force** – Attempts to brute-force web login forms using supplied credentials and wordlist.
-- 🍪 **Session Analysis** – Evaluates cookie flags (e.g. HttpOnly, Secure), and checks session handling behavior.
+- Subdomain Enumeration – Discover subdomains using crt.sh.
+- Directory Bruteforcing – Enumerate directories and files via wordlists.
+- SQLi Testing – Test parameters for basic SQL injection vulnerabilities.
+- Header Inspection – Analyze HTTP response headers.
+- Port Scanning – Scan for open ports using socket connections.
+- WAF Detection – Identify presence of Web Application Firewalls.
+- XSS Scanner – Test for reflected Cross-Site Scripting (XSS) payloads.
+- Login Bruteforce – Attempt credential brute-force on login forms.
+- Session Analysis – Evaluate cookies for flags like HttpOnly, Secure, etc.
+- Tech Stack Fingerprinting – Detect backend technologies from headers, cookies, and meta tags.
 
 ## Installation
 
@@ -88,9 +89,14 @@ infiltr8 xss https://example.com/search?q=test
 infiltr8 login https://example.com/login -u admin -w passwords.txt --user-field username --pass-field password
 ```
 
-### Session Analysis
+#### Session Analysis
 ```bash
 infiltr8 session https://example.com
+```
+
+#### Tech Stack Fingerprinting
+```bash
+infiltr8 techstack https://example.com
 ```
 
 ## Examples
@@ -114,7 +120,7 @@ You can find example usage output and screenshots in the `examples/` directory.
 - [x] XSS scanner – Test for reflected XSS payloads.
 - [x] Login brute-force – Attempt to brute-force web login forms.
 - [x] Session analysis – Evaluate cookie flags, session handling.
-- [ ] Tech stack fingerprinting – Identify tech used by target web apps.
+- [x] Tech stack fingerprinting – Identify tech used by target web apps.
 - [ ] CORS misconfig scanner – Detect overly permissive CORS settings.
 - [ ] Vulnerability DB checker – Match target info against known CVEs.
 - [ ] CSP & security header analyzer – Check for missing/misconfigured headers.

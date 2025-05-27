@@ -61,6 +61,10 @@ def main():
     session_parser = subparsers.add_parser("session", help="Analyze session handling and cookies")
     session_parser.add_argument("url", help="Target URL")
 
+    # Tech stack fingerprinting module
+    tech_parser = subparsers.add_parser("techstack", help="Identify technologies used by the target web app")
+    tech_parser.add_argument("url", help="Target URL")
+
 
     args = parser.parse_args()
 
@@ -85,6 +89,9 @@ def main():
     elif args.module == "session":
         from infiltr8.modules.session_analysis import check_session_security
         check_session_security(args.url)
+    elif args.module == "techstack":
+        from infiltr8.modules.techstack import fingerprint_tech
+        fingerprint_tech(args.url)
     else:
         parser.print_help()
 

@@ -2,7 +2,7 @@ import requests
 from rich.console import Console
 from rich.table import Table
 
-def run(url):
+def run(url, console):
     console = Console()
     try:
         response = requests.get(url, timeout=5)
